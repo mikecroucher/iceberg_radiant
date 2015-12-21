@@ -83,9 +83,10 @@ ssh -X username@iceberg.sheffield.ac.uk
 					<p>From the log-in node:</p>
           <pre>
 					<code>
-qsh                          #Xterm session
+qsh                          #Xterm session (Not great!)
 qrsh                         #Text only terminal
-qrsh -v DISPLAY -pty y bash  #Terminal with X windows support (RECOMMENDED)
+qrsh -v DISPLAY -pty y bash  #Terminal with X windows support
+                             #(RECOMMENDED)
 					</code>
 				</pre>
 					<p>The <code>qsh</code> graphical terminal is very old and limited.
