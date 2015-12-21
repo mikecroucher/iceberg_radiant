@@ -61,18 +61,19 @@
 								<li>NVIDIA K40M - 2880 CUDA Cores, 12 GB each
 							</ul>
 			       <li>2 Tb Dedicated, backed-up storage </li>
+						 <li>Until 12/10/2017</li>
 					</ul>
 				</section>
 
 				<section>
 					<h3>Log in</h3>
-					<p>Get to a log-in node</p>
+					<p>Gets you to a log-in node</p>
 					<pre>
 						<code>
 ssh -X username@iceberg.sheffield.ac.uk
 						</code>
 					</pre>
-					<p>As soon as you log in, get an interactive session.</p>
+					<p>As soon as you log in, get an interactive session on a worker node.</p>
 					<p>You can't do much on the log-in nodes.</p>
 				</section>
 
@@ -82,8 +83,9 @@ ssh -X username@iceberg.sheffield.ac.uk
 					<p>From the log-in node:</p>
           <pre>
 					<code>
-qsh    #Terminal with X-Windows support
-qrsh   #Text only terminal
+qsh                          #Xterm session
+qrsh                         #Text only terminal
+qrsh -v DISPLAY -pty y bash  #Terminal with X windows support (RECOMMENDED)
 					</code>
 				</pre>
 					<p>The <code>qsh</code> graphical terminal is very old and limited.
@@ -109,6 +111,14 @@ qrsh -P radiant -q radiant.q
 
 				<section>
 					<h3>Storage</h3>
+					CREATE DIR
+					Add the following to your /etc/fstab file
+					<pre>
+						<code>
+//uosfstore.shef.ac.uk/shared/radiant2	/media/iceberg	cifs	username=youruser,iocharset=utf8  0  0
+            </code>
+					</pre>
+
 				</section>
 
 
