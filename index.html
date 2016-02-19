@@ -56,6 +56,7 @@
 				<section>
 					<h3>What do we have?</h3>
 					<ul>
+						<li>Same access as everybody else PLUS
 						<li>2 Dedicated nodes with 64Gb RAM each</li>
 
 						<li>32 CPU cores total
@@ -136,9 +137,8 @@ qrsh -P radiant -q radiant.q
 				</section>
 
 				<section>
-					<p>Submission script</p>
-					<pre>
-#!/bin/bash
+					<p>Submission scripts</p>
+					<pre><code>#!/bin/bash
 # Submission scripts are bash scripts
 # Request 5 gigabytes of real memory (mem)
 # and 5 gigabytes of virtual memory (mem)
@@ -149,15 +149,14 @@ module load apps/gcc/foo
 
 #Run the program foo with input foo.dat
 #and output foo.res
-foo < foo.dat > foo.res
-					</pre>
+foo < foo.dat > foo.res</code></pre>
 				</section>
 
 				<section>
-					<p> Submit with qsub</p>
-					<pre>qsub myscript.sh</pre>
+					<p>Submit with qsub</p>
+					<pre><code>qsub myscript.sh</code></pre>
 					<p> Get status with qstat </p>
-					<pre>qstat -u USERNAME</pre>
+					<pre><code>qstat -u USERNAME</code></pre>
 			</section>
 
 				<section>
@@ -183,17 +182,12 @@ job-ID  prior   name       user         state submit/start at     queue         
 				<section>
 					<p>How busy are our nodes?</p>
 					<pre><code>qstat -q radiant.q</code></pre>
+					<p><a href="http://gridweb1.shef.ac.uk/ganglia/?m=load_one&r=hour&s=by%2520name&c=iceberg&h=&sh=1&hc=6&z=small">Ganglia</a> can also be used to see graphs of how well a node is coping with a particular job - node215 & node216 for radiant.q
+					</p>
 				</section>
 
 				<section>
-					Historic usage can be seen from the accounting file /usr/local/sge/live/default/common/accounting - it's big and infrequently rotated, so processing can be a pain.  qacct can be used to provide a summary of usage for a given project, and the man pages are fairly helpful.
-
-Ganglia can also be used to see graphs of how well a node is coping with a particular job - node215 & node216 for radiant.q
-http://gridweb1.shef.ac.uk/ganglia/?m=load_one&r=hour&s=by%2520name&c=iceberg&h=&sh=1&hc=6&z=small
-				</section>
-
-				<section>
-					<h3>Genral Storage</h3>
+					<h3>General Storage</h3>
 					<p>Everyone in the University has</p>
 					<p><pre>/home/USERNAME - 10Gb</pre></p>
 					<p><pre>/data/USERNAME - 100Gb</pre></p>
