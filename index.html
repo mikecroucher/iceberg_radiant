@@ -49,6 +49,7 @@
 					<li>University Supercomputer
 					<li>Uses standard HPC software stack
 					<li>Tier 3 system
+					<li>Similar (but smaller) to National UK Supercomputer
 				</section>
 
 				<section>
@@ -155,6 +156,7 @@ qrsh -P radiant -q radiant.q
 
 				<section>
 					<p>Batch jobs (submit and go)</p>
+					<p>Scheduler: Son of Grid Engine</p>
 					<p>Recommended way to use Iceberg</p>
 				</section>
 
@@ -201,6 +203,18 @@ job-ID  prior   name       user         state submit/start at     queue         
 	<pre><code>qdel job-ID  #general form</code></pre>
 	<pre><code>qdel 945292  #Specific example</code></pre>
 </section>
+        <section>
+					<h3>Job Array</h3>
+					<p>Easy parallelisation</p>
+					<pre><code>#!/bin/bash
+#
+#$ -t 1-100
+#
+echo "Task id is $SGE_TASK_ID"
+
+#./myprog.exe < data.$SGE_TASKID   > output.$SGE_TASK_ID
+</code></pre>
+				</section>
 				<section>
 					<p>How busy are our nodes?</p>
 					<pre><code>qstat -q radiant.q</code></pre>
