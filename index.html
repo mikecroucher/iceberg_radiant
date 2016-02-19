@@ -107,17 +107,43 @@ qrsh -P radiant
 qrsh -P radiant -q radiant.q
 					</code>
 				</pre>
-					<p>Change <code>qrsh</code> to <code>qsh</code> for graphical support.</p>
+				</section>
+
+				<section>
+					Batch jobs.
+					Serial
+					Parallel
+					GPU
+				</section>
+
+				<section>
+					busyness - qstat -q radiant.q
+					busyness - qstat -u username
+				</section>
+
+				<section>
+					Historic usage can be seen from the accounting file /usr/local/sge/live/default/common/accounting - it's big and infrequently rotated, so processing can be a pain.  qacct can be used to provide a summary of usage for a given project, and the man pages are fairly helpful.
+
+Ganglia can also be used to see graphs of how well a node is coping with a particular job - node215 & node216 for radiant.q
+http://gridweb1.shef.ac.uk/ganglia/?m=load_one&r=hour&s=by%2520name&c=iceberg&h=&sh=1&hc=6&z=small
 				</section>
 
 				<section>
 					<h3>Storage</h3>
-					CREATE DIR
+					<p>We have 2 Terabytes</p>
+					<p><pre>/shared/radiant2/shared/ - Everyone in the group can see it</pre></p>
+					<p><pre>/shared/radiant2/user/ - Private folders for each of us</pre></p>
+				</section>
+
+				<section>
+					<h3>Mounting Storage Locally</h3>
+					<p><pre><code>mkdir /media/iceberg/</code></pre></p>
 					Add the following to your /etc/fstab file
 					<pre>
 						<code>
-//uosfstore.shef.ac.uk/shared/radiant2	/media/iceberg	cifs	username=youruser,iocharset=utf8  0  0
+//uosfstore.shef.ac.uk/shared/radiant2	/media/iceberg/	cifs	username=youruser,iocharset=utf8  0  0
             </code>
+					Mount with <pre><code>sudo mount /media/iceberg/</code></pre>
 					</pre>
 
 				</section>
